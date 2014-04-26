@@ -52,6 +52,8 @@ void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, void *da
   if(cell_index->row == 0){
   	window_stack_pop(true);
   }else{
+	window_stack_pop(false);
+	page_sending_show();
   	placeCall(callindex);
   }
 }
@@ -93,6 +95,7 @@ void window_unload(Window *window) {
 void page_confirm_init(void)
 {
    //Create window
+   APP_LOG(APP_LOG_LEVEL_DEBUG, "Creating confirm window");
    ui.window = window_create();
 
    window_set_window_handlers(ui.window, (WindowHandlers) {
@@ -100,7 +103,6 @@ void page_confirm_init(void)
       .unload = window_unload
    });
    page_sending_init();
-   page_sending_show();
 
 }
 

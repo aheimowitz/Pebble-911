@@ -32,6 +32,7 @@ void changeText(){
 }
 
 void initialPhoneConnection(char* namein, char* phonein){
+	APP_LOG(APP_LOG_LEVEL_DEBUG, "%s     %s",namein,phonein);
 	phoneconnected = true;
 	name = namein;
 	phoneNumber = phonein;
@@ -40,6 +41,9 @@ void initialPhoneConnection(char* namein, char* phonein){
 }
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
+  if(!phoneconnected){
+	return;
+  }
 	if(phoneconnected){
 		Layer *window_layer = window_get_root_layer(window);
 		if(!inverted){
@@ -53,11 +57,15 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 		  layer_add_child(window_layer, (Layer*) select_button);
 		  inverted = false;
 		}
+		
 		page_confirm_show(count);
 	}
 }
 
 static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+  if(!phoneconnected){
+	return;
+  }
   count++;
   if(count == listsize){
   	count = 0;
@@ -68,6 +76,9 @@ static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
 }
 
 static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
+  if(!phoneconnected){
+	return;
+  }
   count--;
   if(count == -1){
   	count = listsize-1;
@@ -120,7 +131,6 @@ static void deinit(void) {
 int main(void) {
   init();
   page_confirm_init();
-
   APP_LOG(APP_LOG_LEVEL_DEBUG, "Done initializing, pushed window: %p", window);
 
   app_event_loop();
