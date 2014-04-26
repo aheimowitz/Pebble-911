@@ -1,4 +1,5 @@
 #include <pebble.h>
+#include "ancom.h"
 
 static Window *window;
 static TextLayer *text_layer_contact_name;
@@ -19,6 +20,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 	  layer_add_child(window_layer, (Layer*) select_button);
 	  inverted = false;
 	}
+	init_msg();
 }
 
 static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
