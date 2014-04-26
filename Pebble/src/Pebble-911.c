@@ -62,7 +62,6 @@ static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
   if(count == listsize){
   	count = 0;
   }
-  APP_LOG(APP_LOG_LEVEL_DEBUG, "numcontacts: %d", count);
   name = getContactName(count);
   phoneNumber = getContactNumber(count);
   changeText();
@@ -73,7 +72,6 @@ static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
   if(count == -1){
   	count = listsize-1;
   }
-  APP_LOG(APP_LOG_LEVEL_DEBUG, "numcontacts: %d", count);
   name = getContactName(count);
   phoneNumber = getContactNumber(count);
   changeText();
