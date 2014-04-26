@@ -17,6 +17,11 @@
       "type":"png",
       "name":"SELECT_BUTTON",
       "file":"images/select.png"
+    },
+    {
+      "type":"png",
+      "name":"SELECT_BUTTON_INVERSE",
+      "file":"images/select-inverse.png"
     }
   ]
   }
