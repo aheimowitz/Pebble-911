@@ -1,10 +1,18 @@
 #include <pebble.h>
-#include "antom.h";
-#include "Pebble-911.h";
+#include "ancom.h"
+#include "Pebble-911.h"
 
 static Window *window;
 static TextLayer *text_layer_contact_name;
 static TextLayer *text_layer_contact_number;
+
+BitmapLayer *select_button;
+bool inverted = false;
+int count;
+int listsize;
+char* phoneNumber;
+char* name;
+bool phoneconnected;
 
 
 void changeText(){

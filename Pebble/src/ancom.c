@@ -33,7 +33,7 @@ char* getContactNumber(int position){
 }
 
 int getNumContacts(){
-	return numcontacts;
+	return num_contacts;
 }
 
 void in_received_handler(DictionaryIterator *iter, void *context) {
