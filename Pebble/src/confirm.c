@@ -51,7 +51,7 @@ void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, void *da
   if(cell_index->row == 0){
   	window_stack_pop(true);
   }else{
-  	//call
+  	placeCall(callindex);
   }
 }
 

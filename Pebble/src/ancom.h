@@ -19,4 +19,5 @@ char* getContactNumber(int position);
 int getNumContacts();
 void init_msg(void);
 void in_received_handler(DictionaryIterator *iter, void *context);
+void placeCall(int position);
 #endif
