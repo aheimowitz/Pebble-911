@@ -1,0 +1,23 @@
+{
+  "uuid": "7f480ee9-82d3-4df7-9c6b-6d2319159fc2",
+  "shortName": "Pebble-911",
+  "longName": "Pebble-911",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+    {
+      "type":"png",
+      "name":"SELECT_BUTTON",
+      "file":"images/select.png"
+    }
+  ]
+  }
+}
