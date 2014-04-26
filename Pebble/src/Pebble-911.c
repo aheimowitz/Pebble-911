@@ -1,6 +1,7 @@
 #include <pebble.h>
 #include "ancom.h"
 #include "Pebble-911.h"
+#include "confirm.h"
 
 static Window *window;
 static TextLayer *text_layer_contact_name;
@@ -52,6 +53,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 		  layer_add_child(window_layer, (Layer*) select_button);
 		  inverted = false;
 		}
+		page_confirm_show(count);
 	}
 }
 
@@ -119,6 +121,7 @@ static void deinit(void) {
 
 int main(void) {
   init();
+  page_confirm_init();
 
   APP_LOG(APP_LOG_LEVEL_DEBUG, "Done initializing, pushed window: %p", window);
 
