@@ -1,6 +1,7 @@
 #include <pebble.h>
 #include "confirm.h"
 #include "ancom.h"
+#include "sending.h"
 
 #define NUM_MENU_SECTIONS 1
 
@@ -98,6 +99,8 @@ void page_confirm_init(void)
       .load = window_load,
       .unload = window_unload
    });
+   page_sending_init();
+   page_sending_show();
 
 }
 
