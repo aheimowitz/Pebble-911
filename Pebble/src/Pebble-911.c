@@ -30,10 +30,11 @@ void changeText(){
 	layer_add_child(window_layer, text_layer_get_layer(text_layer_contact_number));
 }
 
-void initalPhoneConnection(char* namein, char* phonein){
+void initialPhoneConnection(char* namein, char* phonein){
 	phoneconnected = true;
 	name = namein;
 	phoneNumber = phonein;
+	listsize = getNumContacts();
 	changeText();
 }
 
@@ -54,21 +55,25 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 	}
 }
 
-static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
+static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
   count++;
   if(count == listsize){
   	count = 0;
   }
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "numcontacts: %d", count);
   name = getContactName(count);
   phoneNumber = getContactNumber(count);
   changeText();
 }
 
-static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
   count--;
   if(count == -1){
   	count = listsize-1;
   }
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "numcontacts: %d", count);
+  name = getContactName(count);
+  phoneNumber = getContactNumber(count);
   changeText();
 }
 
@@ -82,7 +87,6 @@ static void window_load(Window *window) {
 	phoneconnected = false;
 	//get contact list size
 	count = 0;
-	listsize = getNumContacts();
 	//get first contact
 	phoneNumber = "No Connection";
 	changeText();
@@ -106,6 +110,7 @@ static void init(void) {
   });
   const bool animated = true;
   window_stack_push(window, animated);
+  init_msg();
 }
 
 static void deinit(void) {

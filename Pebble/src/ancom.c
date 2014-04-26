@@ -41,6 +41,9 @@ void in_received_handler(DictionaryIterator *iter, void *context) {
           // Check for fields you expect to receive
           Tuple *text_tuple = dict_find(iter, 0);
 	  num_contacts = text_tuple->value->int32;
+	  if(num_contacts == -1){
+
+	  }
 	  Tuple *name_tuple;
 	  Tuple *number_tuple;
 	  contacts = malloc((sizeof(Contact)) * num_contacts);
@@ -56,7 +59,10 @@ void in_received_handler(DictionaryIterator *iter, void *context) {
 	  Tuple *val_tuple = dict_find(iter, (num_contacts*2)+1);
 	  confirm_flag = val_tuple->value->int32;
 	  APP_LOG(APP_LOG_LEVEL_DEBUG, "Confirm? %d", confirm_flag);
-          initialPhoneConnection(contacts[0].name, contacts[0].number);
+	  APP_LOG(APP_LOG_LEVEL_DEBUG, "numcontacts %d", num_contacts);
+	  if(num_contacts > 0){
+	 	 initialPhoneConnection(contacts[0].name, contacts[0].number);
+	  }
 
 }
 
