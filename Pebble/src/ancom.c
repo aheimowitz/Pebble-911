@@ -15,6 +15,7 @@ void out_sent_handler(DictionaryIterator *sent, void *context) {
 
 void out_failed_handler(DictionaryIterator *failed, AppMessageResult reason, void *context) {
    APP_LOG(APP_LOG_LEVEL_DEBUG, "Sending has failed: %d", reason);
+   setfailed();
 }
 
 

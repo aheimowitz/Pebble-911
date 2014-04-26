@@ -46,6 +46,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   }
 	if(phoneconnected){
 		Layer *window_layer = window_get_root_layer(window);
+/*
 		if(!inverted){
 			select_button = bitmap_layer_create(GRect(22,50,100,100));
 		  	bitmap_layer_set_bitmap(select_button, gbitmap_create_with_resource(RESOURCE_ID_SELECT_BUTTON_INVERSE));
@@ -56,7 +57,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 		  bitmap_layer_set_bitmap(select_button, gbitmap_create_with_resource(RESOURCE_ID_SELECT_BUTTON));
 		  layer_add_child(window_layer, (Layer*) select_button);
 		  inverted = false;
-		}
+		}*/
 		
 		page_confirm_show(count);
 	}
@@ -99,7 +100,8 @@ static void window_load(Window *window) {
 	//get contact list size
 	count = 0;
 	//get first contact
-	phoneNumber = "No Connection";
+	name ="Fetching";
+	phoneNumber = "Contacts";
 	changeText();
 	Layer *window_layer = window_get_root_layer(window);
 	select_button = bitmap_layer_create(GRect(22,50,100,100));
@@ -122,6 +124,13 @@ static void init(void) {
   const bool animated = true;
   window_stack_push(window, animated);
   init_msg();
+ 
+}
+
+void setfailed(){
+	name="";
+	phoneNumber = "No Connection";
+	changeText();
 }
 
 static void deinit(void) {
