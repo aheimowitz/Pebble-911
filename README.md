@@ -4,9 +4,7 @@ Pebble 911 is an app that was developed at HackBU Spring 2014. It allows you to 
 
 Team
 ====
-Adam Heimowitz
-Kevin Johnson
-Mike Zagreda
+Adam Heimowitz, Kevin Johnson, and Mike Zagreda
 
 Award
 ====
